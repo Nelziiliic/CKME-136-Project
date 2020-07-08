@@ -1,0 +1,53 @@
+---
+title: "Air Accident"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+str(Airaccidents_raw)
+```
+#Dataset after cleaning and extension
+```{r}
+str(Airaccident_no_na_clean2)
+```
+
+#histograms of numerical attributes
+```{r}
+hist(Airaccident_no_na_clean2$Aboard.Passangers)
+hist(Airaccident_no_na_clean2$Aboard)
+hist((Airaccident_no_na_clean2$Aboard.Crew))
+hist(Airaccident_no_na_clean2$Fatalities)
+hist(Airaccident_no_na_clean2$Fatalities.Passangers)
+hist(Airaccident_no_na_clean2$Fatalities.Crew)
+hist(Airaccident_no_na_clean2$Ground)
+```
+
+#Descriptive Statistics of numerical attributes
+```{r}
+boxplot.stats(Airaccident_no_na_clean2$Aboard)
+boxplot.stats(Airaccident_no_na_clean2$Aboard.Passangers)
+boxplot.stats(Airaccident_no_na_clean2$Aboard.Crew)
+boxplot.stats(Airaccident_no_na_clean2$Fatalities)
+boxplot.stats(Airaccident_no_na_clean2$Fatalities.Passangers)
+boxplot.stats(Airaccident_no_na_clean2$Fatalities.Crew)
+boxplot.stats(Airaccident_no_na_clean2$Ground)
+```
+
+#Correlation beetween numerical Attributes
+```{r}
+cor(Airaccident_no_na_clean2$Aboard,Airaccident_no_na_clean2$Fatalities)
+cor(Airaccident_no_na_clean2$Aboard.Crew,Airaccident_no_na_clean2$Fatalities.Crew)
+cor(Airaccident_no_na_clean2$Aboard.Passangers,Airaccident_no_na_clean2$Fatalities.Passangers)
+cor(Airaccident_no_na_clean2$Fatalities,Airaccident_no_na_clean2$Ground)
+```
+
+#Hypothesis test on Fatalities
+```{r}
+lm(Fatalities~Aboard.Passangers+Aboard.Crew+Ground, data = Airaccident_no_na_clean2)
+
+```
+

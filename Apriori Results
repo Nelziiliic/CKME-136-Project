@@ -1,0 +1,82 @@
+=== Run information ===
+
+Scheme:       weka.associations.Apriori -N 100 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.1 -S -1.0 -c -1
+Relation:     Airaccident_no_na_clean2-weka.filters.unsupervised.attribute.Remove-R2,4,6,8,12-13,15-16,18-19,22-23-weka.filters.unsupervised.attribute.NumericToNominal-Rfirst-last
+Instances:    1230
+Attributes:   11
+              Class.Decade
+              Daytime.Nightime
+              Class.loc.
+              Operator
+              Direct.Stopover
+              Route
+              AC.Type
+              Aboard
+              Fatalities
+              Ground
+              Causes
+=== Associator model (full training set) ===
+
+
+Apriori
+=======
+
+Minimum support: 0.1 (123 instances)
+Minimum metric <confidence>: 0.9
+Number of cycles performed: 18
+
+Generated sets of large itemsets:
+
+Size of set of large itemsets L(1): 18
+
+Size of set of large itemsets L(2): 35
+
+Size of set of large itemsets L(3): 23
+
+Size of set of large itemsets L(4): 5
+
+Best rules found:
+
+  1. Class.loc.=Russia Direct.Stopover=Direct 129 ==> Ground=0 124    <conf:(0.96)> lift:(1.04) lev:(0) [4] conv:(1.64)
+  2. Class.loc.=Russia 142 ==> Ground=0 136    <conf:(0.96)> lift:(1.04) lev:(0) [4] conv:(1.55)
+  3. Direct.Stopover=Direct Causes=Weather Conditions 132 ==> Ground=0 126    <conf:(0.95)> lift:(1.03) lev:(0) [4] conv:(1.44)
+  4. Causes=Weather Conditions 161 ==> Ground=0 153    <conf:(0.95)> lift:(1.03) lev:(0) [4] conv:(1.37)
+  5. Operator=Aeroflot 138 ==> Ground=0 131    <conf:(0.95)> lift:(1.03) lev:(0) [3] conv:(1.32)
+  6. Class.Decade=1960s 231 ==> Ground=0 217    <conf:(0.94)> lift:(1.02) lev:(0) [3] conv:(1.18)
+  7. Class.Decade=1960s Direct.Stopover=Direct 197 ==> Ground=0 185    <conf:(0.94)> lift:(1.02) lev:(0) [3] conv:(1.16)
+  8. Daytime.Nightime=Nighttime Class.loc.=USA Direct.Stopover=Direct 161 ==> Ground=0 151    <conf:(0.94)> lift:(1.02) lev:(0) [2] conv:(1.12)
+  9. Class.Decade=1990s Direct.Stopover=Direct 174 ==> Ground=0 163    <conf:(0.94)> lift:(1.01) lev:(0) [2] conv:(1.11)
+ 10. Class.loc.=USA Causes=Pilot Error 170 ==> Ground=0 159    <conf:(0.94)> lift:(1.01) lev:(0) [1] conv:(1.08)
+ 11. Daytime.Nightime=Nighttime Direct.Stopover=Direct 479 ==> Ground=0 448    <conf:(0.94)> lift:(1.01) lev:(0) [5] conv:(1.14)
+ 12. Daytime.Nightime=Nighttime Causes=Pilot Error 226 ==> Ground=0 211    <conf:(0.93)> lift:(1.01) lev:(0) [2] conv:(1.08)
+ 13. Class.loc.=USA Direct.Stopover=Direct Causes=Pilot Error 134 ==> Ground=0 125    <conf:(0.93)> lift:(1.01) lev:(0) [1] conv:(1.02)
+ 14. Daytime.Nightime=Nighttime Class.loc.=USA 221 ==> Ground=0 206    <conf:(0.93)> lift:(1.01) lev:(0) [1] conv:(1.06)
+ 15. Daytime.Nightime=Nighttime Direct.Stopover=Direct Causes=Pilot Error 191 ==> Ground=0 178    <conf:(0.93)> lift:(1.01) lev:(0) [1] conv:(1.04)
+ 16. Class.Decade=1990s Ground=0 175 ==> Direct.Stopover=Direct 163    <conf:(0.93)> lift:(1.1) lev:(0.01) [14] conv:(2.01)
+ 17. Causes=Pilot Error 489 ==> Ground=0 455    <conf:(0.93)> lift:(1.01) lev:(0) [3] conv:(1.07)
+ 18. Daytime.Nightime=Nighttime 574 ==> Ground=0 534    <conf:(0.93)> lift:(1.01) lev:(0) [3] conv:(1.07)
+ 19. Direct.Stopover=Direct Causes=Pilot Error 416 ==> Ground=0 387    <conf:(0.93)> lift:(1.01) lev:(0) [2] conv:(1.06)
+ 20. Daytime.Nightime=Daytime Direct.Stopover=Direct Causes=Pilot Error 225 ==> Ground=0 209    <conf:(0.93)> lift:(1.01) lev:(0) [1] conv:(1.01)
+ 21. Daytime.Nightime=Daytime Causes=Pilot Error 262 ==> Ground=0 243    <conf:(0.93)> lift:(1) lev:(0) [1] conv:(1)
+ 22. Daytime.Nightime=Daytime Causes=Mechanical Failure 137 ==> Direct.Stopover=Direct 127    <conf:(0.93)> lift:(1.09) lev:(0.01) [10] conv:(1.86)
+ 23. Class.Decade=1990s 189 ==> Ground=0 175    <conf:(0.93)> lift:(1) lev:(0) [0] conv:(0.96)
+ 24. Direct.Stopover=Direct 1046 ==> Ground=0 967    <conf:(0.92)> lift:(1) lev:(0) [0] conv:(1)
+ 25. Class.Decade=1990s 189 ==> Direct.Stopover=Direct 174    <conf:(0.92)> lift:(1.08) lev:(0.01) [13] conv:(1.77)
+ 26. Class.Decade=1950s 138 ==> Ground=0 127    <conf:(0.92)> lift:(1) lev:(-0) [0] conv:(0.88)
+ 27. Direct.Stopover=Stopover 163 ==> Ground=0 150    <conf:(0.92)> lift:(1) lev:(-0) [0] conv:(0.89)
+ 28. Class.loc.=USA 397 ==> Ground=0 365    <conf:(0.92)> lift:(1) lev:(-0) [-1] conv:(0.92)
+ 29. Class.Decade=1970s 184 ==> Direct.Stopover=Direct 169    <conf:(0.92)> lift:(1.08) lev:(0.01) [12] conv:(1.72)
+ 30. Daytime.Nightime=Daytime 654 ==> Ground=0 600    <conf:(0.92)> lift:(0.99) lev:(-0) [-4] conv:(0.91)
+ 31. Daytime.Nightime=Daytime Direct.Stopover=Direct 567 ==> Ground=0 519    <conf:(0.92)> lift:(0.99) lev:(-0) [-4] conv:(0.88)
+ 32. Class.Decade=1970s 184 ==> Ground=0 168    <conf:(0.91)> lift:(0.99) lev:(-0) [-1] conv:(0.83)
+ 33. Class.loc.=Russia Ground=0 136 ==> Direct.Stopover=Direct 124    <conf:(0.91)> lift:(1.07) lev:(0.01) [8] conv:(1.56)
+ 34. Class.loc.=USA Direct.Stopover=Direct 305 ==> Ground=0 278    <conf:(0.91)> lift:(0.99) lev:(-0) [-3] conv:(0.83)
+ 35. Class.Decade=1970s Ground=0 168 ==> Direct.Stopover=Direct 153    <conf:(0.91)> lift:(1.07) lev:(0.01) [10] conv:(1.57)
+ 36. Class.Decade=1980s 144 ==> Ground=0 131    <conf:(0.91)> lift:(0.98) lev:(-0) [-1] conv:(0.79)
+ 37. Class.loc.=Russia 142 ==> Direct.Stopover=Direct 129    <conf:(0.91)> lift:(1.07) lev:(0.01) [8] conv:(1.52)
+ 38. Class.Decade=2000s Direct.Stopover=Direct 139 ==> Ground=0 126    <conf:(0.91)> lift:(0.98) lev:(-0) [-2] conv:(0.76)
+ 39. Class.Decade=1970s Direct.Stopover=Direct 169 ==> Ground=0 153    <conf:(0.91)> lift:(0.98) lev:(-0) [-3] conv:(0.76)
+ 40. Direct.Stopover=Direct Causes=Mechanical Failure 219 ==> Ground=0 198    <conf:(0.9)> lift:(0.98) lev:(-0) [-4] conv:(0.76)
+ 41. Daytime.Nightime=Daytime Class.loc.=USA 174 ==> Ground=0 157    <conf:(0.9)> lift:(0.98) lev:(-0) [-3] conv:(0.74)
+ 42. Causes=Mechanical Failure 245 ==> Ground=0 221    <conf:(0.9)> lift:(0.98) lev:(-0) [-5] conv:(0.75)
+
