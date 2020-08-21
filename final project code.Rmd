@@ -1,0 +1,64 @@
+---
+title: "Final Project code"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+r = getOption("repos")
+r["CRAN"] = "http://cran.us.r-project.org"
+options(repos = r)
+Airaccident_final<-read.csv("C://Users//piadu//OneDrive//Documents//Airaccidents_final2.csv")
+df<-data.matrix(Airaccident_final,rownames.force=NA)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+#MCA
+```{r}
+
+install.packages("FactoMineR")
+library(FactoMineR)
+library(ggplot2)
+mca1=MCA(Airaccident_final, graph= TRUE)
+```
+
+#apriori algorithm
+```{r}
+library(arules)
+install.packages("arulesViz")
+library(arulesViz)
+frequentpatterns <- eclat (Airaccident_final, parameter = list(supp = 0.07, maxlen = 15))
+inspect(frequentpatterns)
+rules<-apriori(Airaccident_final, parameter = list(supp=0.05, conf=0.8, target="rules"))
+summary(rules)
+rules
+inspect(head(rules[1:10]))
+head(quality(rules))
+plot(rules, method="scatterplot")
+plot(rules, method="grouped")
+plot(rules, method="graph")
+plot(rules,method = "paracoord",control = list(reorder = TRUE))
+```
+
+#clustering with Hclust
+```{r}
+install.packages("ClustOfVar")
+library(ClustOfVar)
+tree2<-hclustvar(df)
+plot(tree2)
+cutreevar(tree2,k=7, matsim = FALSE)
+stability(tree2)
+k.means2<-kmeansvar(df, init = 7)
+summary(k.means2)
+plot.clustvar(k.means2)
